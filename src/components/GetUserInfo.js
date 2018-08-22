@@ -6,13 +6,21 @@ class GetUserInfo extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = { 
+			input: 'getify',
 			user: null,
 			repos: null 
 		}
+		this.getInfo = this.getInfo.bind(this);
+		this.inputHandler = this.inputHandler.bind(this);
+		this.clickHandler = this.clickHandler.bind(this);
 	}
 
 	componentWillMount() {
-		const username = 'zurda';
+		this.getInfo();
+	}
+
+	getInfo() {
+		const username = this.state.input;
 		// Get user data
 		axios.get('https://api.github.com/users/' + username)
 			.then( (response) => {
@@ -26,7 +34,18 @@ class GetUserInfo extends React.Component {
 
 	}
 
+	inputHandler(event) {
+		const input = event.target.value;
+		console.log('input:', input);
+		this.setState({input});
+	}
+
+	clickHandler() {
+		this.getInfo();
+	}
+
 	render() {
+		console.log('state:', this.state.input);
 		if (!(this.state.user || this.state.repos || this.state.followers)) {
 			return <div>Loading</div>
 		}
@@ -34,6 +53,11 @@ class GetUserInfo extends React.Component {
 			// <pre>{JSON.stringify(this.state.user, null, '  ')}</pre>
 			// <pre>{JSON.stringify(this.state.repos, null, '  ')}</pre>
 			<div>
+				<input 
+					value={this.state.input} 
+					onChange={this.inputHandler}
+				/>
+				<button onClick={this.clickHandler}>Get info</button>
 				<DisplayUser 
 					login={this.state.user.login} 
 					avatar_url={this.state.user.avatar_url}
