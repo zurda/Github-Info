@@ -13,9 +13,10 @@ class GetUserInfo extends React.Component {
 		}
 		this.getInfo = this.getInfo.bind(this);
 		this.inputHandler = this.inputHandler.bind(this);
+		this.keyDownHandler = this.keyDownHandler.bind(this);
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.getInfo();
 	}
 
@@ -36,42 +37,43 @@ class GetUserInfo extends React.Component {
 
 	inputHandler(event) {
 		const input = event.target.value;
-		console.log('input:', input);
 		this.setState({input});
 	}
 
 	keyDownHandler(event) {
-		if (event.keyCode === 13)
-            document.getElementById('searchBtn').click();
+		if (event.keyCode === 13) {
+            document.getElementById('searchButton').click();
+		}
 	}
 
 	render() {
 		if (!(this.state.user || this.state.repos || this.state.followers)) {
 			return <div>Loading</div>
 		}
-		return (
-			<div>
 
-			    <div className='header'>
-		        	<img className='logo' src={logo} alt='Github Profile Display Logo' />
-		        	<h1 className='title' >Github Profile Display</h1>
-		        	<div className='userSearch'>
-		        		<input className='searchInput'
-		        			type="text" name="fname" placeholder="Search for a user"
-						
-							onChange={this.inputHandler}
-							onKeyDown={this.keyDownHandler}
-						/>
-						<button className='searchBtn' id='searchBtn' onClick={this.getInfo}>Get info</button>
-		        	</div>
-       			</div>
-				
-				<DisplayUser
-					user={this.state.user} 
-					repos={this.state.repos}
-				/>
+			return (
 
-			</div>
+				<div>
+				    <div className='header'>
+			        	<img className='logo' src={logo} alt='Github Profile Display Logo' />
+			        	<h1 className='title' >Github Profile Display</h1>
+			        	<div className='userSearch'>
+			        		<input className='searchInput' id='searchInputID'
+			        			type="text" name="fname" placeholder="Search for a user"
+							
+								onChange={this.inputHandler}
+								onKeyDown={this.keyDownHandler}
+							/>
+							<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
+			        	</div>
+	       			</div>
+					
+					<DisplayUser
+						user={this.state.user} 
+						repos={this.state.repos}
+					/>
+
+				</div>
 		);
 	}
 }
