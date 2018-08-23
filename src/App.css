@@ -36,16 +36,22 @@
   margin-left: 20px;
 }
 
+input {
+    color: white;
+    font-weight: 200;
+}
+input:focus {
+    color: black;
+    font-weight: 200;
+}
+
 .searchInput {
   border-radius: 3px;
   font-size: 14px;
   padding: 7px;
   background: rgba(200, 200, 200, 0.6);
   border: transparent !important;
-  font-weight: 200;
-  font-color: white;
 }
-
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;
