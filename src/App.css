@@ -1,8 +1,113 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
-img {
+*:focus {
+    outline: none;
+}
+
+.header {
+  background-color: black;
+  height: 60px;
+}
+
+.logo {
+  display: inline-block;
+  width: 35px;
+  background-color: white;
+  margin: 10px 10px 10px 40px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+}
+
+.title {
+  color: white;
+  font-size: 18px;
+  display: inline-block;
+  margin-left: 90px;
+  margin-top: 18px;
+}
+
+.userSearch {
+  margin: 0 auto;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.searchInput {
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 7px;
+  background: rgba(200, 200, 200, 0.6);
+  border: transparent !important;
+  font-weight: 200;
+  font-color: white;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+.searchInput:focus {
+  background: rgba(255, 255, 255, 1);
+  border: transparent !important;
+  font-weight: 200;
+  font-color: black !important;
+}
+
+.searchInput:after {
+  font-color: white;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: black;
+}
+
+input:focus:-moz-placeholder {
+    color: black;
+}
+
+input:focus::-moz-placeholder {
+    color: black;
+}
+
+input:focus:-ms-input-placeholder {
+    color: black;
+}
+
+.searchBtn {
+  padding: 7px;
+  font-size: 14px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255);
+  border: transparent !important;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.DisplayUser {
+  text-align: left;
+  margin: 30px;
+  max-width: 40%;
+}
+
+.DisplayUser * {
+  padding: 5px;
+}
+
+.avatar {
   width: 200px;
   border-radius: 10px;
 }

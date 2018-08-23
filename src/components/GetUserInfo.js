@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import logo from '../logo.png';
 import DisplayUser from './DisplayUser';
 
 class GetUserInfo extends React.Component {
@@ -12,7 +13,6 @@ class GetUserInfo extends React.Component {
 		}
 		this.getInfo = this.getInfo.bind(this);
 		this.inputHandler = this.inputHandler.bind(this);
-		this.clickHandler = this.clickHandler.bind(this);
 	}
 
 	componentWillMount() {
@@ -40,33 +40,35 @@ class GetUserInfo extends React.Component {
 		this.setState({input});
 	}
 
-	clickHandler() {
-		this.getInfo();
+	keyDownHandler(event) {
+		if (event.keyCode === 13)
+            document.getElementById('searchBtn').click();
 	}
 
 	render() {
-		console.log('state:', this.state.input);
 		if (!(this.state.user || this.state.repos || this.state.followers)) {
 			return <div>Loading</div>
 		}
 		return (
-			// <pre>{JSON.stringify(this.state.user, null, '  ')}</pre>
-			// <pre>{JSON.stringify(this.state.repos, null, '  ')}</pre>
 			<div>
-				<input 
-					value={this.state.input} 
-					onChange={this.inputHandler}
-				/>
-				<button onClick={this.clickHandler}>Get info</button>
-				<DisplayUser 
-					login={this.state.user.login} 
-					avatar_url={this.state.user.avatar_url}
-					name={this.state.user.name}
-					bio={this.state.user.bio}
-					location={this.state.user.location}
-					followers={this.state.user.followers}
-					following={this.state.user.following}
-					isHireable={this.state.user.hireable}
+
+			    <div className='header'>
+		        	<img className='logo' src={logo} alt='Github Profile Display Logo' />
+		        	<h1 className='title' >Github Profile Display</h1>
+		        	<div className='userSearch'>
+		        		<input className='searchInput'
+		        			type="text" name="fname" placeholder="Search for a user"
+						
+							onChange={this.inputHandler}
+							onKeyDown={this.keyDownHandler}
+						/>
+						<button className='searchBtn' id='searchBtn' onClick={this.getInfo}>Get info</button>
+		        	</div>
+       			</div>
+				
+				<DisplayUser
+					user={this.state.user} 
+					repos={this.state.repos}
 				/>
 
 			</div>

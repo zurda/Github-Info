@@ -1,17 +1,17 @@
 import React from 'react';
 
-const displayUser = (props) => {
+const displayUser = ({user, repos}) => {
+	const {login, avatar_url, name, bio, location, followers, following, isHireable} = user;
 	return (
-		<div>
-			<h1>Github Profile Display</h1>
-			<h2>Username: {props.login}</h2>
-			<img src={props.avatar_url} alt='User profile avatar' />
-			<p>Name: {props.name}</p>
-			<p>Bio: {props.bio}</p>
-			<p>Location: {props.location}</p>
-			<p>Followers: {props.followers}</p>
-			<p>Following: {props.following}</p>
-			{props.isHireable && <p>Looking for a job</p>}
+		<div className='DisplayUser'>
+			<h2>Username: {login}</h2>
+			<img className='avatar' src={avatar_url} alt='User profile avatar' />
+			<p>Name: {name}</p>
+			<p>Bio: {bio}</p>
+			<p>Location: {location}</p>
+			<p>Followers: {followers}</p>
+			<p>Following: {following}</p>
+			{isHireable && <p>Looking for a job</p>}
 		</div>
 	);
 }
