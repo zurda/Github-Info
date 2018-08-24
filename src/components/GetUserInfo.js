@@ -24,16 +24,29 @@ class GetUserInfo extends React.Component {
 		const username = this.state.input;
 		// Get user data
 		axios.get('https://api.github.com/users/' + username)
-			.then( (response) => {
-				this.setState({user: response.data});
-		});
+			.then( 
+				// handle success
+				(response) => {
+					this.setState({user: response.data})
+				})
+				// handle error
+				.catch( (error) => { 
+					console.log(error)
+				}
+			);
 		// Get repos data
 		axios.get('https://api.github.com/users/' + username + '/repos')
-			.then( (response) => {
-				this.setState({repos: response.data});
-		});
-
-	}
+			.then(
+				// handle success 
+				(response) => {
+					this.setState({repos: response.data}) 
+				})
+				// handle error
+				.catch( (error) => { 
+					console.log(error)
+				}
+			);
+		}
 
 	inputHandler(event) {
 		const input = event.target.value;
