@@ -47,9 +47,12 @@ class GetUserInfo extends React.Component {
 	}
 
 	render() {
-		if (!(this.state.user || this.state.repos || this.state.followers)) {
-			return <div>Loading</div>
-		}
+		const userDisplay = (!(this.state.user || this.state.repos || this.state.followers)) ? 
+			<div>Loading</div> : 
+			<DisplayUser
+				user={this.state.user} 
+				repos={this.state.repos}
+			/>
 
 			return (
 
@@ -66,12 +69,8 @@ class GetUserInfo extends React.Component {
 							/>
 							<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
 			        	</div>
+			        	{userDisplay}
 	       			</div>
-					
-					<DisplayUser
-						user={this.state.user} 
-						repos={this.state.repos}
-					/>
 
 				</div>
 		);

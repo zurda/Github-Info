@@ -3,7 +3,7 @@
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 .header {
@@ -12,28 +12,25 @@
 }
 
 .logo {
-  display: inline-block;
-  width: 35px;
-  background-color: white;
-  margin: 10px 10px 10px 40px;
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  z-index: 2;
+  float: left;
+  width: 40px;
+  height: 40px;
+  background: white;
+  margin: 10px 0 10px 20px;
 }
 
 .title {
+  position: relative;
+  top: 30px;
+  left: 10px;
   color: white;
   font-size: 18px;
-  display: inline-block;
-  margin-left: 90px;
-  margin-top: 18px;
 }
 
 .userSearch {
-  margin: 0 auto;
-  display: inline-block;
-  margin-left: 20px;
+  position: relative;
+  left: 220px;
+  top: 5px;
 }
 
 input {
@@ -48,7 +45,7 @@ input:focus {
 .searchInput {
   border-radius: 3px;
   font-size: 14px;
-  padding: 7px;
+  padding: 5px;
   background: rgba(200, 200, 200, 0.6);
   border: transparent !important;
 }
@@ -94,7 +91,7 @@ input:focus:-ms-input-placeholder {
 }
 
 .searchBtn {
-  padding: 7px;
+  padding: 5px;
   font-size: 14px;
   border-radius: 3px;
   background: rgba(255, 255, 255);
