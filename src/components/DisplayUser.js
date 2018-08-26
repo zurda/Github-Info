@@ -16,10 +16,10 @@ const displayUser = ({ user, repos }) => {
 			<h2>Username: {login}</h2>
 			<img className='avatar' src={avatar_url} alt='User profile avatar' />
 			<ValidatedField fieldName="Name" value={name}/>
-			<ValidatedField fieldName={"Bio: "} value={bio}/>
-			<ValidatedField fieldName={"Location: "} value={location}/>
-			<ValidatedField fieldName={"Followers: "} value={followers}/>
-			<ValidatedField fieldName={"Following: "} value={following}/>
+			<ValidatedField fieldName="Bio" value={bio}/>
+			<ValidatedField fieldName="Location" value={location}/>
+			<ValidatedField fieldName="Followers" value={followers}/>
+			<ValidatedField fieldName="Following" value={following}/>
 			{isHireable && <p>Looking for a job</p>}
 		</div>
 	);
