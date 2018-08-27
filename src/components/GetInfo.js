@@ -3,8 +3,10 @@ import axios from 'axios';
 import githubUsernameRegex from 'github-username-regex';
 
 import logo from '../logo.png';
+import params from '../auth.js';
 import DisplayUser from './DisplayUser';
 import DisplayRepos from './DisplayRepos';
+
 
 class GetInfo extends React.Component {
 	constructor (props) {
@@ -34,7 +36,7 @@ class GetInfo extends React.Component {
 			return;
 		} else { this.setState({isInvalid: false})}
 		// Get user data
-		axios.get('https://api.github.com/users/' + username)
+		axios.get('https://api.github.com/users/' + username + params)
 			.then( 
 				// handle success
 				(response) => {
@@ -46,11 +48,12 @@ class GetInfo extends React.Component {
 				}
 			);
 		// Get repos data
-		axios.get('https://api.github.com/users/' + username + '/repos')
+		axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100')
 			.then(
 				// handle success 
 				(response) => {
-					this.setState({repos: response.data}) 
+					this.setState({repos: response.data});
+					console.log(response.data);
 				})
 				// handle error
 				.catch( (error) => { 
@@ -79,10 +82,14 @@ class GetInfo extends React.Component {
 		} else {
 			userDisplay = (!(this.state.user || this.state.repos )) ? 
 				<div className='loading'><h2>Loading...</h2></div> : 
-				<DisplayUser
-					user={this.state.user} 
-					repos={this.state.repos}
-				/>
+				<div>
+					<DisplayUser
+						user={this.state.user} 
+					/>
+					<DisplayRepos
+						repos={this.state.repos} 
+					/>
+				</div>
 		}
 			return (
 
