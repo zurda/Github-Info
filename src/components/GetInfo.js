@@ -3,10 +3,12 @@ import axios from 'axios';
 import githubUsernameRegex from 'github-username-regex';
 
 import logo from '../logo.png';
-import params from '../auth.js';
 import DisplayUser from './DisplayUser';
 import DisplayRepos from './DisplayRepos';
 
+const id = "f5ce4435afdfe23711c6";
+const sec = "1daa19d525b9e92f034ebe504075e5b1600eea46";
+const params = "?client_id=" + id + "&client_secret=" + sec;
 
 class GetInfo extends React.Component {
 	constructor (props) {
