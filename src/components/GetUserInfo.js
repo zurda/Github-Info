@@ -76,7 +76,7 @@ class GetUserInfo extends React.Component {
 			userDisplay = <div className='DisplayUser'><h2>Invalid username!</h2></div>;
 		} else {
 			userDisplay = (!(this.state.user || this.state.repos || this.state.followers)) ? 
-			<div>Loading</div> : 
+			<div className='loading'>Loading</div> : 
 			<DisplayUser
 				user={this.state.user} 
 				repos={this.state.repos}

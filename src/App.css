@@ -50,6 +50,11 @@ input:focus {
   border: transparent !important;
 }
 
+.loading {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;
 }
