@@ -4,7 +4,7 @@ import ValidatedField from './ValidatedField';
 const displayRepos = ({ repos }) => {
 	return (
 		<div className='DisplayRepos'>
-			<ValidatedField fieldName="Star Count" value={repos.length}/>
+			<div>Repos placeholder</div>
 		</div>
 	);
 }
