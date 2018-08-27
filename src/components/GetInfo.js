@@ -89,16 +89,16 @@ class GetInfo extends React.Component {
 			// Show a message when the username is invalid
 			flashMessage =	<FlashMessage type="error">Invalid username</FlashMessage>;
 		} else if(!isFound){
-		// Show a message when the username is not found
-		flashMessage =	<FlashMessage type="error">Username not found</FlashMessage>;	
+			// Show a message when the username is not found
+			flashMessage =	<FlashMessage type="error">Username not found</FlashMessage>;	
 		} else {
-			if(!(this.state.user || this.state.repos )){
+	        if(!(this.state.user || this.state.repos )){
 				flashMessage = <FlashMessage type="info">Loading...</FlashMessage>;
 			} else {
-				userDisplay = <div>
-								<DisplayUser user={this.state.user} />
-								<DisplayRepos repos={this.state.repos} />
-							  </div>
+                userDisplay = <div>
+                                <DisplayUser user={this.state.user} />
+                                <DisplayRepos repos={this.state.repos} />
+                            </div>
 			}
 		}
 			return (
@@ -115,7 +115,7 @@ class GetInfo extends React.Component {
 							/>
 							<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
 			        	</div>
-						{flashMessage}
+					    {flashMessage}
 			        	{userDisplay}
 	       			</div>
 
