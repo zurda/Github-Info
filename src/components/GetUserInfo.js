@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import logo from '../logo.png';
 import DisplayUser from './DisplayUser';
+import githubUsernameRegex from 'github-username-regex';
 
 class GetUserInfo extends React.Component {
 	constructor (props) {
@@ -9,7 +10,8 @@ class GetUserInfo extends React.Component {
 		this.state = { 
 			input: 'getify',
 			user: null,
-			repos: null 
+			repos: null,
+			isInvalid: false
 		}
 		this.getInfo = this.getInfo.bind(this);
 		this.inputHandler = this.inputHandler.bind(this);
@@ -22,6 +24,13 @@ class GetUserInfo extends React.Component {
 
 	getInfo() {
 		const username = this.state.input;
+		// Check if the username is a valid one
+		if(!githubUsernameRegex.test(username)) {
+			// if not, set state to reflect so
+			// and exit the function without calling the API
+			this.setState({isInvalid: true})
+			return;
+		} else { this.setState({isInvalid: false})}
 		// Get user data
 		axios.get('https://api.github.com/users/' + username)
 			.then( 
@@ -60,13 +69,19 @@ class GetUserInfo extends React.Component {
 	}
 
 	render() {
-		const userDisplay = (!(this.state.user || this.state.repos || this.state.followers)) ? 
+		const isInvalid = this.state.isInvalid;
+		let userDisplay;
+		if(isInvalid) {
+			// Show a message when the username is invalid
+			userDisplay = <div className='DisplayUser'><h2>Invalid username!</h2></div>;
+		} else {
+			userDisplay = (!(this.state.user || this.state.repos || this.state.followers)) ? 
 			<div>Loading</div> : 
 			<DisplayUser
 				user={this.state.user} 
 				repos={this.state.repos}
 			/>
-
+		}
 			return (
 
 				<div>
