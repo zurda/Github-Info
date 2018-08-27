@@ -52,11 +52,6 @@ input:focus {
   border: transparent !important;
 }
 
-.loading {
-  margin-top: 40px;
-  margin-left: 30px;
-}
-
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;
 }
@@ -105,6 +100,37 @@ input:focus:-ms-input-placeholder {
   border: transparent !important;
   margin-left: 5px;
   font-weight: bold;
+}
+
+.flash-message {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.message-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.message-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.message-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.message-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
 }
 
 .DisplayUser {
