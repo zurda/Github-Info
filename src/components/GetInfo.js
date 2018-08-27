@@ -4,10 +4,12 @@ import githubUsernameRegex from 'github-username-regex';
 import FlashMessage from './FlashMessage';
 
 import logo from '../logo.png';
-import params from '../auth.js';
 import DisplayUser from './DisplayUser';
 import DisplayRepos from './DisplayRepos';
 
+const id = "f5ce4435afdfe23711c6";
+const sec = "1daa19d525b9e92f034ebe504075e5b1600eea46";
+const params = "?client_id=" + id + "&client_secret=" + sec;
 
 class GetInfo extends React.Component {
 	constructor (props) {
@@ -103,7 +105,7 @@ class GetInfo extends React.Component {
 				<div>
 				    <div className='header'>
 			        	<img className='logo' src={logo} alt='Github Profile Display Logo' />
-			        	<h1 className='title' >Github Profile Display</h1>
+			        	<h1 className='title' >Github Profiles</h1>
 			        	<div className='userSearch'>
 			        		<input className='searchInput' id='searchInputID'
 			        			type="text" name="fname" placeholder="Search for a user"
