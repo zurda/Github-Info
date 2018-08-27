@@ -7,3 +7,4 @@ If you are working on your first pull request, check out the free series [How to
 - @zurda
 - [@mrassili](https://github.com/mrassili)
 - [@luisduenas](https://github.com/luisduenas)
+- [@decarbonite](https://github.com/decarbonite)
