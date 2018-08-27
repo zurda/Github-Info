@@ -1,5 +1,4 @@
 import React from 'react';
-import ValidatedField from './ValidatedField';
 
 const displayRepos = ({ repos }) => {
 	return (
