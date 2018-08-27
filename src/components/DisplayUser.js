@@ -10,7 +10,7 @@ function ValidatedField(props) {
 }
 
 const displayUser = ({ user, repos }) => {
-	const { login, avatar_url, name, bio, location, followers, following, isHireable } = user;
+	const { login, avatar_url, name, bio, location, followers, following, hireable } = user;
 	return (
 		<div className='DisplayUser'>
 			<h2>Username: {login}</h2>
@@ -20,7 +20,7 @@ const displayUser = ({ user, repos }) => {
 			<ValidatedField fieldName="Location" value={location}/>
 			<ValidatedField fieldName="Followers" value={followers}/>
 			<ValidatedField fieldName="Following" value={following}/>
-			{isHireable && <p>Looking for a job</p>}
+			{hireable && <p>Available for job offers</p>}
 		</div>
 	);
 }
