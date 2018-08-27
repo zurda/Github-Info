@@ -1,10 +1,10 @@
 import React from 'react';
 import ValidatedField from './ValidatedField';
 
-const displayUser = ({ user }) => {
-	const { login, avatar_url, name, bio, location, followers, following, hireable } = user;
+const displayRepos = ({ repos }) => {
+	const { login, avatar_url, name, bio, location, followers, following, hireable } = repos;
 	return (
-		<div className='DisplayUser'>
+		<div className='DisplayRepos'>
 			<h2>Username: {login}</h2>
 			<img className='avatar' src={avatar_url} alt='User profile avatar' />
 			<ValidatedField fieldName="Name" value={name}/>
@@ -17,4 +17,4 @@ const displayUser = ({ user }) => {
 	);
 }
 
-export default displayUser;
+export default displayRepos;

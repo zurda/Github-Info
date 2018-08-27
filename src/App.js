@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import GetUserInfo from './components/GetUserInfo';
+import GetInfo from './components/GetInfo';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <GetUserInfo />
+        <GetInfo />
       </div>
     );
   }
