@@ -75,14 +75,14 @@ class GetInfo extends React.Component {
 		let userDisplay;
 		if(isInvalid) {
 			// Show a message when the username is invalid
-			userDisplay = <div className='DisplayUser'><h2>Invalid username!</h2></div>;
+			userDisplay = <div className='DisplayUser'><h2>Invalid username</h2></div>;
 		} else {
-			userDisplay = (!(this.state.user || this.state.repos || this.state.followers)) ? 
-			<div>Loading</div> : 
-			<DisplayUser
-				user={this.state.user} 
-				repos={this.state.repos}
-			/>
+			userDisplay = (!(this.state.user || this.state.repos )) ? 
+				<div className='loading'><h2>Loading...</h2></div> : 
+				<DisplayUser
+					user={this.state.user} 
+					repos={this.state.repos}
+				/>
 		}
 			return (
 
