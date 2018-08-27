@@ -23,6 +23,7 @@
   position: relative;
   top: 30px;
   left: 10px;
+  margin-right: 10px;
   color: white;
   font-size: 18px;
 }
@@ -30,6 +31,7 @@
 .userSearch {
   position: relative;
   left: 220px;
+  margin-right: 220px;
   top: 5px;
 }
 
