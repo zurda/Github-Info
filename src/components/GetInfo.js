@@ -98,7 +98,7 @@ class GetInfo extends React.Component {
 				<div>
 				    <div className='header'>
 			        	<img className='logo' src={logo} alt='Github Profile Display Logo' />
-			        	<h1 className='title' >Github Profile Display</h1>
+			        	<h1 className='title' >Github Profiles</h1>
 			        	<div className='userSearch'>
 			        		<input className='searchInput' id='searchInputID'
 			        			type="text" name="fname" placeholder="Search for a user"
