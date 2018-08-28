@@ -7,6 +7,7 @@
     "axios": "^0.18.0",
     "github-username-regex": "^1.0.0",
     "react": "^16.4.2",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.4"
   },
