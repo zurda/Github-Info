@@ -102,15 +102,13 @@ class GetInfo extends React.Component {
 			}
 		}
 		const footer = 	
-			<footer class="credit">
+			<footer className="credit">
 				Created by <a 
 						id="profile-link" 
-						class='footer-link' 
 						href="https://github.com/zurda" 
 						target="_blank"
 						rel="noopener noreferrer" >Michal Weizman</a>
 				<br/>This site's code is available on <a 
-					class='footer-link' 
 					href="https://github.com/zurda/github-info" 
 					target='_blank'
 					rel="noopener noreferrer" >Github
