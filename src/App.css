@@ -158,6 +158,14 @@ input:focus:-ms-input-placeholder {
   transition: 0.3s;
 }
 
+.UserInfo a, 
+.UserInfo a:after,
+.UserInfo a:hover,
+.UserInfo a:active   {
+    text-decoration: none;
+    color: black;
+}
+
 .UserInfo:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 }
