@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import githubUsernameRegex from 'github-username-regex';
+import FlashMessage from './FlashMessage';
 
 import logo from '../logo.png';
 import DisplayUser from './DisplayUser';
@@ -17,7 +18,8 @@ class GetInfo extends React.Component {
 			input: 'getify',
 			user: null,
 			repos: null,
-			isInvalid: false
+			isInvalid: false,
+			isFound: true,
 		}
 		this.getInfo = this.getInfo.bind(this);
 		this.inputHandler = this.inputHandler.bind(this);
@@ -43,10 +45,13 @@ class GetInfo extends React.Component {
 				// handle success
 				(response) => {
 					this.setState({user: response.data})
+					this.setState({isFound: true});
 				})
 				// handle error
-				.catch( (error) => { 
-					console.log(error)
+				.catch( (error) => {
+					if(error.response.status === 404){
+						this.setState({isFound: false});
+					}
 				}
 			);
 		// Get repos data
@@ -71,45 +76,48 @@ class GetInfo extends React.Component {
 
 	keyDownHandler(event) {
 		if (event.keyCode === 13) {
-            document.getElementById('searchButton').click();
+			document.getElementById('searchButton').click();
 		}
 	}
 
 	render() {
 		const isInvalid = this.state.isInvalid;
+		const isFound = this.state.isFound;
 		let userDisplay;
+		let flashMessage;
 		if(isInvalid) {
 			// Show a message when the username is invalid
-			userDisplay = <div className='DisplayUser'><h2>Invalid username</h2></div>;
+			flashMessage =	<FlashMessage type="error">Invalid username</FlashMessage>;
+		} else if(!isFound){
+			// Show a message when the username is not found
+			flashMessage =	<FlashMessage type="error">Username not found</FlashMessage>;	
 		} else {
-			userDisplay = (!(this.state.user || this.state.repos )) ? 
-				<div className='loading'><h2>Loading...</h2></div> : 
-				<div>
-					<DisplayUser
-						user={this.state.user} 
-					/>
-					<DisplayRepos
-						repos={this.state.repos} 
-					/>
-				</div>
+			if(!(this.state.user || this.state.repos )){
+				flashMessage = <FlashMessage type="info">Loading...</FlashMessage>;
+			} else {
+				userDisplay = <div>
+								<DisplayUser user={this.state.user} />
+								<DisplayRepos repos={this.state.repos} />
+							</div>
+			}
 		}
 			return (
-
 				<div>
-				    <div className='header'>
-			        	<img className='logo' src={logo} alt='Github Profile Display Logo' />
-			        	<h1 className='title' >Github Profiles</h1>
-			        	<div className='userSearch'>
-			        		<input className='searchInput' id='searchInputID'
-			        			type="text" name="fname" placeholder="Search for a user"
+					<div className='header'>
+						<img className='logo' src={logo} alt='Github Profile Display Logo' />
+						<h1 className='title' >Github Profiles</h1>
+						<div className='userSearch'>
+							<input className='searchInput' id='searchInputID'
+								type="text" name="fname" placeholder="Search for a user"
 							
 								onChange={this.inputHandler}
 								onKeyDown={this.keyDownHandler}
 							/>
 							<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
-			        	</div>
-			        	{userDisplay}
-	       			</div>
+						</div>
+						{flashMessage}
+						{userDisplay}
+					   </div>
 
 				</div>
 		);
