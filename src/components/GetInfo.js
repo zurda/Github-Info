@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import githubUsernameRegex from 'github-username-regex';
-import FlashMessage from './FlashMessage';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+import FlashMessage from './FlashMessage';
 import logo from '../logo.png';
 import DisplayUser from './DisplayUser';
 import DisplayRepos from './DisplayRepos';
@@ -94,7 +95,7 @@ class GetInfo extends React.Component {
 			if(!(this.state.user || this.state.repos )){
 				flashMessage = <FlashMessage type="info">Loading...</FlashMessage>;
 			} else {
-				userInfo = <div className='UserInfo'>
+				userInfo = <div className='UserInfo' key={this.state.user.login}>
 								<DisplayUser user={this.state.user} />
 								<DisplayRepos repos={this.state.repos} />
 							</div>
@@ -131,8 +132,13 @@ class GetInfo extends React.Component {
 						</div>
 					</div>
 					<div className='content'>
-						{flashMessage}
-						{userInfo}
+						<ReactCSSTransitionGroup
+							transitionName="fade"
+							transitionEnterTimeout={300}
+          					transitionLeaveTimeout={300}>
+								{flashMessage}
+								{userInfo}
+						</ReactCSSTransitionGroup>
 					</div>
 					{footer}
 			</div>

@@ -111,6 +111,7 @@ input:focus:-ms-input-placeholder {
   padding: 15px;
   border: 1px solid transparent;
   border-radius: 4px;
+  font-weight: bold;
 }
 
 .message-error {
@@ -135,6 +136,24 @@ input:focus:-ms-input-placeholder {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 30ms linear;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave-active {
+  opacity: 0;
+  transition: opacity 30ms linear;
 }
 
 .DisplayUser {

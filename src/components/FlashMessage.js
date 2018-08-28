@@ -13,15 +13,16 @@ class FlashMessage extends Component {
         info: "message-info",
       }
     };
+
   }
 
   render() {
-    let children = this.props.children;
-    let inputType = this.props.type;
-    let classType = this.state.stateTypes[inputType];
+    const children = this.props.children;
+    const inputType = this.props.type;
+    const classType = this.state.stateTypes[inputType];
     
-    return <div className={`flash-message ${classType}`} >
-            <strong> {children} </strong>
+    return <div className={`flash-message ${classType}`} key={this.props.children} >
+            {children}
           </div>;
   }
 }
