@@ -10,11 +10,11 @@ const displayUser = ({ user }) => {
 			<p>{login}</p>
 			<ValidatedField value={bio}/>
 			<ValidatedField value={location}/>
+			{hireable && <p>Available for job offers</p>}
 			{blog && <a href={blog} target="_BLANK">{blog}</a>}
 			<ValidatedField fieldName="Public Repos" value={public_repos}/>
 			<ValidatedField fieldName="Followers" value={followers}/>
 			<ValidatedField fieldName="Following" value={following}/>
-			{hireable && <p>Available for job offers</p>}
 		</div>
 	);
 }

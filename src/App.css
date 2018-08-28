@@ -134,16 +134,30 @@ input:focus:-ms-input-placeholder {
 }
 
 .DisplayUser {
-  text-align: left;
-  margin: 30px;
-  max-width: 40%;
+  margin: 30px 30px 0 30px;
 }
 
-.DisplayUser * {
+.DisplayRepos {
+  margin: 0 30px 30px 30px;
+}
+
+.DisplayUser *, 
+.DisplayRepos * {
   padding: 5px;
 }
 
 .avatar {
-  width: 200px;
-  border-radius: 10px;
+  width: 95%;
+}
+
+.UserInfo {
+  padding: 3px;
+  margin: 10px;
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.UserInfo:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 }

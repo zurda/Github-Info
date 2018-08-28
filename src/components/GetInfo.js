@@ -60,7 +60,6 @@ class GetInfo extends React.Component {
 				// handle success 
 				(response) => {
 					this.setState({repos: response.data});
-					console.log(response.data);
 				})
 				// handle error
 				.catch( (error) => { 
@@ -83,7 +82,7 @@ class GetInfo extends React.Component {
 	render() {
 		const isInvalid = this.state.isInvalid;
 		const isFound = this.state.isFound;
-		let userDisplay;
+		let userInfo;
 		let flashMessage;
 		if(isInvalid) {
 			// Show a message when the username is invalid
@@ -95,7 +94,7 @@ class GetInfo extends React.Component {
 			if(!(this.state.user || this.state.repos )){
 				flashMessage = <FlashMessage type="info">Loading...</FlashMessage>;
 			} else {
-				userDisplay = <div>
+				userInfo = <div className='UserInfo'>
 								<DisplayUser user={this.state.user} />
 								<DisplayRepos repos={this.state.repos} />
 							</div>
@@ -115,10 +114,11 @@ class GetInfo extends React.Component {
 							/>
 							<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
 						</div>
-						{flashMessage}
-						{userDisplay}
-					   </div>
-
+					</div>
+					{flashMessage}
+					<div className='card'>
+						{userInfo}
+					</div>
 				</div>
 		);
 	}
