@@ -95,10 +95,8 @@ class GetInfo extends React.Component {
 				flashMessage = <FlashMessage type="info">Loading...</FlashMessage>;
 			} else {
 				userInfo = <div className='UserInfo'>
-								<a href={'https://github.com/' + this.state.input} target='_blank' >
-									<DisplayUser user={this.state.user} />
-									<DisplayRepos repos={this.state.repos} />
-								</a>
+								<DisplayUser user={this.state.user} />
+								<DisplayRepos repos={this.state.repos} />
 							</div>
 			}
 		}

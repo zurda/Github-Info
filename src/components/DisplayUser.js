@@ -5,7 +5,9 @@ const displayUser = ({ user }) => {
 	const { login, avatar_url, name, bio, blog, location, followers, following, public_repos, hireable } = user;
 	return (
 		<div className='DisplayUser'>
-			<img className='avatar' src={avatar_url} alt='User profile avatar' />
+			<a href={'https://github.com/' + login} target='_blank' >
+				<img className='avatar' src={avatar_url} alt='User profile avatar' />
+			</a>
 			<ValidatedField value={name} tag="h2"/>
 			<p>{login}</p>
 			<ValidatedField value={bio}/>
