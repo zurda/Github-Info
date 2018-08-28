@@ -132,7 +132,7 @@ class GetInfo extends React.Component {
 					<div className='content'>
 						<ReactCSSTransitionGroup
 							transitionName="fade"
-							transitionEnterTimeout={300}
+							transitionEnterTimeout={500}
           					transitionLeaveTimeout={300}>
 								{flashMessage}
 								{userInfo}

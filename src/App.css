@@ -139,21 +139,21 @@ input:focus:-ms-input-placeholder {
 }
 
 .fade-enter {
-  opacity: 0;
+  opacity: 0.01;
 }
 
-.fade-enter-active {
+.fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 30ms linear;
+  transition: opacity 500ms ease-in;
 }
 
 .fade-leave {
   opacity: 1;
 }
 
-.fade-leave-active {
-  opacity: 0;
-  transition: opacity 30ms linear;
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
 
 .DisplayUser {
