@@ -1,3 +1,7 @@
+html,body {
+    overflow: auto;
+}
+
 .App {
   text-align: left;
 }
@@ -151,8 +155,9 @@ input:focus:-ms-input-placeholder {
 }
 
 .UserInfo {
+  min-height: 600px;
   padding: 3px;
-  margin: 10px;
+  margin: 10px 10px 100px 10px;
   width: 350px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -168,4 +173,29 @@ input:focus:-ms-input-placeholder {
 
 .UserInfo:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+.wrapper {
+  display: block;
+  min-height: 100%;
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  margin-top: 5%;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em;
+  bottom: 0;
+  padding: 4px 0;
+  margin: 0;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+}
+
+.credit a, .credit a:after {
+  text-decoration: underline;
+  color: white;
 }

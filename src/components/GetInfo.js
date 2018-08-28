@@ -100,8 +100,23 @@ class GetInfo extends React.Component {
 							</div>
 			}
 		}
+		const footer = 	
+			<footer class="credit">
+				Created by <a 
+						id="profile-link" 
+						class='footer-link' 
+						href="https://github.com/zurda" 
+						target="_blank"
+						rel="noopener noreferrer" >Michal Weizman</a>
+				<br/>This site's code is available on <a 
+					class='footer-link' 
+					href="https://github.com/zurda/github-info" 
+					target='_blank'
+					rel="noopener noreferrer" >Github
+				</a>
+			</footer>
 			return (
-				<div>
+				<div className='wrapper'>
 					<div className='header'>
 						<img className='logo' src={logo} alt='Github Profile Display Logo' />
 						<h1 className='title' >Github Profiles</h1>
@@ -115,9 +130,12 @@ class GetInfo extends React.Component {
 							<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
 						</div>
 					</div>
-					{flashMessage}
-					{userInfo}
-				</div>
+					<div className='content'>
+						{flashMessage}
+						{userInfo}
+					</div>
+					{footer}
+			</div>
 		);
 	}
 }
