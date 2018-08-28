@@ -1,5 +1,4 @@
 import React from 'react';
-import ValidatedField from './ValidatedField';
 
 const displayRepos = ({ repos }) => {
 	let stargazers_total, most_starred, most_forked;
