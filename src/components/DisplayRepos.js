@@ -1,4 +1,5 @@
 import React from 'react';
+import {addCommas} from './DisplayUser';
 
 const displayRepos = ({ repos }) => {
 	let stargazers_total, most_starred, most_forked;
@@ -13,7 +14,7 @@ const displayRepos = ({ repos }) => {
 
 	return (
 		<div className='DisplayRepos'>
-			<p>Stargazers: {stargazers_total}</p>
+			<p>Stargazers: {addCommas(stargazers_total.toString())}</p>
 			{
 				most_starred &&
 				<p>
