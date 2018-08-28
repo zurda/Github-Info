@@ -2,14 +2,11 @@ import React from 'react';
 import ValidatedField from './ValidatedField';
 
 const displayRepos = ({ repos }) => {
-	console.log(repos);
 	let stargazers_total, most_starred_repo, most_forked_repo;
 	if (repos) {
 		stargazers_total = repos.reduce( (prev,next) => prev + next.stargazers_count, 0);
 		most_starred_repo = repos.reduce( (prev, next) =>  prev.stargazers_count > next.stargazers_count ? prev : next ); 
 		most_forked_repo = repos.reduce( (prev, next) =>  prev.forks_count > next.forks_count ? prev : next ); 
-
-	console.log(most_starred_repo);
 	}
 
 	return ( repos ? 
