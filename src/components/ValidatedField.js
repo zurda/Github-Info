@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ValidatedField = (props) => {
-	return (
-		(!props.value) ? null : <p>{props.fieldName}: {props.value}</p>
-	);
+const ValidatedField = ({ value, fieldName, tag, props }) => {
+	tag = tag || 'p';
+	const content = !fieldName ? value : `${fieldName}: ${value}`;
+	return !value ? null : React.createElement(tag, props || {}, content);
 }
 
 export default ValidatedField;

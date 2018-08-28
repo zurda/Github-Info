@@ -1,3 +1,7 @@
+html,body {
+    overflow: auto;
+}
+
 .App {
   text-align: left;
 }
@@ -30,8 +34,8 @@
 
 .userSearch {
   position: relative;
-  left: 220px;
-  margin-right: 220px;
+  left: 150px;
+  margin-right: 150px;
   top: 5px;
 }
 
@@ -50,11 +54,6 @@ input:focus {
   padding: 5px;
   background: rgba(200, 200, 200, 0.6);
   border: transparent !important;
-}
-
-.loading {
-  margin-top: 40px;
-  margin-left: 30px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -107,17 +106,96 @@ input:focus:-ms-input-placeholder {
   font-weight: bold;
 }
 
-.DisplayUser {
-  text-align: left;
-  margin: 30px;
-  max-width: 40%;
+.flash-message {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
-.DisplayUser * {
+.message-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.message-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.message-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.message-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+.DisplayUser {
+  margin: 30px 30px 0 30px;
+}
+
+.DisplayRepos {
+  margin: 0 30px 30px 30px;
+}
+
+.DisplayUser *, 
+.DisplayRepos * {
   padding: 5px;
 }
 
 .avatar {
-  width: 200px;
-  border-radius: 10px;
+  width: 95%;
+}
+
+.UserInfo {
+  min-height: 600px;
+  padding: 3px;
+  margin: 10px 10px 100px 10px;
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.UserInfo a, 
+.UserInfo a:after,
+.UserInfo a:hover,
+.UserInfo a:active   {
+    text-decoration: none;
+    color: black;
+}
+
+.UserInfo:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+.wrapper {
+  display: block;
+  min-height: 100%;
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  margin-top: 5%;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em;
+  bottom: 0;
+  padding: 4px 0;
+  margin: 0;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+}
+
+.credit a, .credit a:after {
+  text-decoration: underline;
+  color: white;
 }

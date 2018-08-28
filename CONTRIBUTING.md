@@ -8,3 +8,5 @@ If you are working on your first pull request, check out the free series [How to
 - [@mrassili](https://github.com/mrassili)
 - [@luisduenas](https://github.com/luisduenas)
 - [@decarbonite](https://github.com/decarbonite)
+- [@Wgil](https://github.com/Wgil)
+- [@ksenousi](https://github.com/ksenousi)
