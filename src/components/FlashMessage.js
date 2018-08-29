@@ -21,7 +21,7 @@ class FlashMessage extends Component {
     let classType = this.state.stateTypes[inputType];
     
     return <div className={`flash-message ${classType}`} >
-            <strong> {children} </strong>
+            <strong>{children}</strong>
           </div>;
   }
 }
