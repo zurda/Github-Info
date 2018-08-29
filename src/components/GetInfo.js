@@ -36,35 +36,29 @@ class GetInfo extends React.Component {
 			// and exit the function without calling the API
 			this.setState({isInvalid: true})
 			return;
-		} else { this.setState({isInvalid: false})}
+		} else { 
+			this.setState({isInvalid: false})
+		}
 		// Get user data
-		axios.get('https://api.github.com/users/' + username + params)
-			.then( 
-				// handle success
-				(response) => {
-					this.setState({user: response.data})
-					this.setState({isFound: true});
-				})
-				// handle error
-				.catch( (error) => {
-					if(error.response.status === 404){
+		const userUrl = 'https://api.github.com/users/' + username + params;
+		const reposUrl = 'https://api.github.com/users/' + username + '/repos' + params + '&per_page=100';
+		
+		axios.all([ 
+			axios.get(userUrl), axios.get(reposUrl) 
+			])
+			.then(axios.spread((userResp, reposResp) => {
+					this.setState({
+						user: userResp.data,
+						repos: reposResp.data
+					});
+				}))
+				.catch((error) => {
+    				console.log('FAIL', error);
+    				if(error.response.status === 404){
 						this.setState({isFound: false});
 					}
-				}
-			);
-		// Get repos data
-		axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100')
-			.then(
-				// handle success 
-				(response) => {
-					this.setState({repos: response.data});
-				})
-				// handle error
-				.catch( (error) => { 
-					console.log(error)
-				}
-			);
-		}
+  				});
+	}
 
 	inputHandler(event) {
 		const input = event.target.value;
