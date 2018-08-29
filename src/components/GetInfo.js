@@ -1,11 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import githubUsernameRegex from 'github-username-regex';
-import FlashMessage from './FlashMessage';
 
 import Header from './Header';
-import DisplayUser from './DisplayUser';
-import DisplayRepos from './DisplayRepos';
+import Content from './Content';
 import Footer from './Footer';
 
 const id = "f5ce4435afdfe23711c6";
@@ -74,34 +72,18 @@ class GetInfo extends React.Component {
 	}
 
 	render() {
-		const isInvalid = this.state.isInvalid;
-		const isFound = this.state.isFound;
-		let userInfo;
-		if(isInvalid) {
-			// Show a message when the username is invalid
-			userInfo =	<FlashMessage type="error">Invalid username</FlashMessage>;
-		} else if(!isFound){
-			// Show a message when the username is not found
-			userInfo =	<FlashMessage type="error">Username not found</FlashMessage>;	
-		} else {
-			if(!(this.state.user || this.state.repos )){
-				userInfo = <FlashMessage type="info">Loading...</FlashMessage>;
-			} else {
-				userInfo = <div className='UserInfo'>
-								<DisplayUser user={this.state.user} />
-								<DisplayRepos repos={this.state.repos} />
-							</div>
-			}
-		}
 		return (
 			<div className='wrapper'>
 				<Header 
 					change={this.inputHandler}
 					click={this.getInfo}
 				/>
-				<div className='content'>
-					{userInfo}
-				</div>
+				<Content 
+					isInvalid={this.state.isInvalid}
+					isFound={this.state.isFound}
+					user={this.state.user}
+					repos={this.state.repos} 
+				/>
 				<Footer />
 			</div>
 		);
