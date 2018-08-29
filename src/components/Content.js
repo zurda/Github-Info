@@ -1,6 +1,7 @@
 import React from 'react';
 
 import FlashMessage from './FlashMessage';
+import UserInfo from './UserInfo';
 import DisplayUser from './DisplayUser';
 import DisplayRepos from './DisplayRepos';
 
@@ -16,10 +17,10 @@ const Content = (props) => {
 		if(!(props.user || props.repos )){
 			userInfo = <FlashMessage type="info">Loading...</FlashMessage>;
 		} else {
-			userInfo = <div className='UserInfo'>
+			userInfo = <UserInfo>
 							<DisplayUser user={props.user} />
 							<DisplayRepos repos={props.repos} />
-						</div>
+						</UserInfo>
 		}
 	}
 	return (
