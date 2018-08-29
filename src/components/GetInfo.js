@@ -6,6 +6,7 @@ import FlashMessage from './FlashMessage';
 import logo from '../logo.png';
 import DisplayUser from './DisplayUser';
 import DisplayRepos from './DisplayRepos';
+import Footer from './Footer';
 
 const id = "f5ce4435afdfe23711c6";
 const sec = "1daa19d525b9e92f034ebe504075e5b1600eea46";
@@ -100,39 +101,26 @@ class GetInfo extends React.Component {
 							</div>
 			}
 		}
-		const footer = 	
-			<footer className="credit">
-				Created by <a 
-						id="profile-link" 
-						href="https://github.com/zurda" 
-						target="_blank"
-						rel="noopener noreferrer" >Michal Weizman</a>
-				<br/>This site's code is available on <a 
-					href="https://github.com/zurda/github-info" 
-					target='_blank'
-					rel="noopener noreferrer" >Github
-				</a>
-			</footer>
-			return (
-				<div className='wrapper'>
-					<div className='header'>
-						<img className='logo' src={logo} alt='Github Profile Display Logo' />
-						<h1 className='title' >Github Profiles</h1>
-						<div className='userSearch'>
-							<input className='searchInput' id='searchInputID'
-								type="text" name="fname" placeholder="Search for a user"
-							
-								onChange={this.inputHandler}
-								onKeyDown={this.keyDownHandler}
-							/>
-							<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
-						</div>
+		return (
+			<div className='wrapper'>
+				<div className='header'>
+					<img className='logo' src={logo} alt='Github Profile Display Logo' />
+					<h1 className='title' >Github Profiles</h1>
+					<div className='userSearch'>
+						<input className='searchInput' id='searchInputID'
+							type="text" name="fname" placeholder="Search for a user"
+						
+							onChange={this.inputHandler}
+							onKeyDown={this.keyDownHandler}
+						/>
+						<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
 					</div>
-					<div className='content'>
-						{flashMessage}
-						{userInfo}
-					</div>
-					{footer}
+				</div>
+				<div className='content'>
+					{flashMessage}
+					{userInfo}
+				</div>
+				<Footer />
 			</div>
 		);
 	}

@@ -195,7 +195,7 @@ footer {
   color: white;
 }
 
-.credit a, .credit a:after {
+footer a, footer a:after {
   text-decoration: underline;
   color: white;
 }

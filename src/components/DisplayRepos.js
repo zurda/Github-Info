@@ -5,12 +5,11 @@ const displayRepos = ({ repos }) => {
 
 	if (!repos) {
 		return null;
+	} else {
+		stargazers_total = repos.reduce( (prev,next) => prev + next.stargazers_count, 0);
+		most_starred = repos.reduce( (prev, next) =>  prev.stargazers_count > next.stargazers_count ? prev : next ); 
+		most_forked = repos.reduce( (prev, next) =>  prev.forks_count > next.forks_count ? prev : next );
 	}
-
-	stargazers_total = repos.reduce( (prev,next) => prev + next.stargazers_count, 0);
-	most_starred = repos.reduce( (prev, next) =>  prev.stargazers_count > next.stargazers_count ? prev : next ); 
-	most_forked = repos.reduce( (prev, next) =>  prev.forks_count > next.forks_count ? prev : next );
-
 	return (
 		<div className='DisplayRepos'>
 			<p>Stargazers: {stargazers_total}</p>
