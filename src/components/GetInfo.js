@@ -3,9 +3,10 @@ import axios from 'axios';
 import githubUsernameRegex from 'github-username-regex';
 import FlashMessage from './FlashMessage';
 
-import logo from '../logo.png';
+import Header from './Header';
 import DisplayUser from './DisplayUser';
 import DisplayRepos from './DisplayRepos';
+import Footer from './Footer';
 
 const id = "f5ce4435afdfe23711c6";
 const sec = "1daa19d525b9e92f034ebe504075e5b1600eea46";
@@ -23,7 +24,6 @@ class GetInfo extends React.Component {
 		}
 		this.getInfo = this.getInfo.bind(this);
 		this.inputHandler = this.inputHandler.bind(this);
-		this.keyDownHandler = this.keyDownHandler.bind(this);
 	}
 
 	componentDidMount() {
@@ -73,26 +73,19 @@ class GetInfo extends React.Component {
 		this.setState({input});
 	}
 
-	keyDownHandler(event) {
-		if (event.keyCode === 13) {
-			document.getElementById('searchButton').click();
-		}
-	}
-
 	render() {
 		const isInvalid = this.state.isInvalid;
 		const isFound = this.state.isFound;
 		let userInfo;
-		let flashMessage;
 		if(isInvalid) {
 			// Show a message when the username is invalid
-			flashMessage =	<FlashMessage type="error">Invalid username</FlashMessage>;
+			userInfo =	<FlashMessage type="error">Invalid username</FlashMessage>;
 		} else if(!isFound){
 			// Show a message when the username is not found
-			flashMessage =	<FlashMessage type="error">Username not found</FlashMessage>;	
+			userInfo =	<FlashMessage type="error">Username not found</FlashMessage>;	
 		} else {
 			if(!(this.state.user || this.state.repos )){
-				flashMessage = <FlashMessage type="info">Loading...</FlashMessage>;
+				userInfo = <FlashMessage type="info">Loading...</FlashMessage>;
 			} else {
 				userInfo = <div className='UserInfo'>
 								<DisplayUser user={this.state.user} />
@@ -100,39 +93,16 @@ class GetInfo extends React.Component {
 							</div>
 			}
 		}
-		const footer = 	
-			<footer className="credit">
-				Created by <a 
-						id="profile-link" 
-						href="https://github.com/zurda" 
-						target="_blank"
-						rel="noopener noreferrer" >Michal Weizman</a>
-				<br/>This site's code is available on <a 
-					href="https://github.com/zurda/github-info" 
-					target='_blank'
-					rel="noopener noreferrer" >Github
-				</a>
-			</footer>
-			return (
-				<div className='wrapper'>
-					<div className='header'>
-						<img className='logo' src={logo} alt='Github Profile Display Logo' />
-						<h1 className='title' >Github Profiles</h1>
-						<div className='userSearch'>
-							<input className='searchInput' id='searchInputID'
-								type="text" name="fname" placeholder="Search for a user"
-							
-								onChange={this.inputHandler}
-								onKeyDown={this.keyDownHandler}
-							/>
-							<button className='searchBtn' id='searchButton' onClick={this.getInfo}>Get info</button>
-						</div>
-					</div>
-					<div className='content'>
-						{flashMessage}
-						{userInfo}
-					</div>
-					{footer}
+		return (
+			<div className='wrapper'>
+				<Header 
+					change={this.inputHandler}
+					click={this.getInfo}
+				/>
+				<div className='content'>
+					{userInfo}
+				</div>
+				<Footer />
 			</div>
 		);
 	}
