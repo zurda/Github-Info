@@ -1,6 +1,10 @@
 import React from 'react';
 import ValidatedField from './ValidatedField';
 
+export function addCommas(str){
+	return str.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
 const displayUser = ({ user }) => {
 	const { login, avatar_url, name, bio, blog, location, followers, following, public_repos, hireable } = user;
 	return (
@@ -14,9 +18,9 @@ const displayUser = ({ user }) => {
 			<ValidatedField value={location}/>
 			{hireable && <p>Available for job offers</p>}
 			{blog && <a href={blog} target="_BLANK">{blog}</a>}
-			<ValidatedField fieldName="Public Repos" value={public_repos}/>
-			<ValidatedField fieldName="Followers" value={followers}/>
-			<ValidatedField fieldName="Following" value={following}/>
+			<ValidatedField fieldName="Public Repos" value={addCommas(public_repos.toString())}/>
+			<ValidatedField fieldName="Followers" value={addCommas(followers.toString())}/>
+			<ValidatedField fieldName="Following" value={addCommas(following.toString())}/>
 		</div>
 	);
 }
