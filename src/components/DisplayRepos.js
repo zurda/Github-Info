@@ -1,21 +1,22 @@
 import React from 'react';
 
 const displayRepos = ({ repos }) => {
-	let stargazers_total =0, 
-	most_starred = 0, 
-	most_forked = 0;
+	let stargazers_total, 
+	forks_total,
+	most_starred, 
+	most_forked;
 	if (!repos) {
 		return null;
 	} else {
-		if (repos.stargazers_count > 0) {
-			stargazers_total = repos.reduce( (prev,next) => prev + next.stargazers_count, 0);
+		stargazers_total = repos.reduce( (prev,next) => prev + next.stargazers_count, 0);
+		forks_total = repos.reduce( (prev,next) => prev + next.forks_count, 0);
+		if (stargazers_total > 0) {
 			most_starred = repos.reduce( (prev, next) =>  prev.stargazers_count > next.stargazers_count ? prev : next ); 
 		}
-		if (repos.forks_count > 0) {
-				most_forked = repos.reduce( (prev, next) =>  prev.forks_count > next.forks_count ? prev : next );
+		if (forks_total > 0) {
+			most_forked = repos.reduce( (prev, next) =>  prev.forks_count > next.forks_count ? prev : next );
 		}
 	}
-
 	
 	return (
 		<div className='DisplayRepos'>

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import FlashMessage from './FlashMessage';
 import DisplayUser from './DisplayUser';
 import DisplayRepos from './DisplayRepos';
@@ -21,7 +22,6 @@ const Content = (props) => {
 						</div>
 		}
 	}
-
 	return (
 		<div>{userInfo}</div>
 	);
