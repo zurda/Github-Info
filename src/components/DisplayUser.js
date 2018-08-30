@@ -5,12 +5,12 @@ export function addCommas(str){
 	return str.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-const displayUser = ({ user }) => {
+const displayUser = ({ user, handleOnLoad }) => {
 	const { login, avatar_url, name, bio, blog, location, followers, following, public_repos, hireable } = user;
 	return (
 		<div className='DisplayUser'>
 			<a href={'https://github.com/' + login} target='_blank' >
-				<img className='avatar' src={avatar_url} alt='User profile avatar' />
+				<img className='avatar' onLoad={handleOnLoad} src={avatar_url} alt='User profile avatar' />
 			</a>
 			<ValidatedField value={name} tag="h2"/>
 			<p>{login}</p>
