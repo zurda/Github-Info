@@ -11,17 +11,13 @@ class UserInfo extends Component {
 		};
 	}
 
-	changeFadeState(state){
+	setFadeState(state){
 		// delay required for browsers to run animation
 		const ANIMATION_TIMEOUT = 50;
 
 		setTimeout(() => {
 			this.setState({fadeState: state})
 		}, ANIMATION_TIMEOUT);
-	}
-
-	componentDidMount() {
-		this.changeFadeState('fadeIn');
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
@@ -32,17 +28,16 @@ class UserInfo extends Component {
 		return true;
 	}
 
-	componentDidUpdate(prevProps) {
-		//if user info changed start fading in
-		if (this.props.children[0].props.user.login !== prevProps.children[0].props.user.login) {
-			this.changeFadeState('fadeIn');
-		}
-	}
- 
 	render() {
-		const children = this.props.children;
+		// once the profile image has loaded start to fade in
+		const handleOnLoad = () => this.setFadeState('fadeIn');
+		let userChild = this.props.children[0];
+		userChild = React.cloneElement(userChild, {handleOnLoad: handleOnLoad.bind(this)});
+		const reposChild = this.props.children[1];
+		
 		return <div className={`UserInfo ${this.state.fadeState}`} >
-					{children}
+					{userChild}
+					{reposChild}
 				</div>;
 	}
 }
