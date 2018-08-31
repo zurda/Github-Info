@@ -107,6 +107,23 @@ input:focus:-ms-input-placeholder {
   font-weight: bold;
 }
 
+.a2a_kit, .a2a_kit_size_32 ,.a2a_default_style {
+  display: inline-block;
+  float: right;
+  margin-right: 20px;
+}
+
+.a2a_dd, .a2a_button_copy_link {
+  font-size: 0;
+  width: 30px;
+  display: inline-block;
+  margin-top: -20px;
+}
+
+.icons-footer {
+  display: none;
+}
+
 .flash-message {
   margin: 20px;
   padding: 15px;
@@ -215,5 +232,16 @@ footer a, footer a:after {
   .searchBtn {
     display: none;
   }
-
+  .icons-header {
+    display: none;
+  }
+  .icons-footer {
+    display: inline-block;
+    float: none;
+    margin: 20px auto 0 auto;
+  }
+  .text-footer {
+    display: none;
+    text-align: center;
+  }
 }
