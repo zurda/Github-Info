@@ -4,7 +4,7 @@ const Footer = () => {
 	return(
  		<footer>
 			Created by <a 
-				href='https://github.com/zurda' 
+				href='https://zurda.github.io/one-page-website/' 
 				target='_blank'
 				rel='noopener noreferrer' >Michal Weizman</a>
 			<br/>This site's code is available on <a 
