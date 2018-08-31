@@ -49,7 +49,8 @@ class GetInfo extends React.Component {
 			.then(axios.spread((userResp, reposResp) => {
 					this.setState({
 						user: userResp.data,
-						repos: reposResp.data
+						repos: reposResp.data,
+						isFound:true
 					});
 				}))
 				.catch((error) => {
