@@ -49,6 +49,7 @@ input:focus {
 }
 
 .searchInput {
+  width: 120px;
   border-radius: 3px;
   font-size: 14px;
   padding: 5px;
@@ -160,16 +161,16 @@ input:focus:-ms-input-placeholder {
   margin: 10px 10px 100px 10px;
   width: 350px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .UserInfo.fadeIn {
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   opacity: 1;
 }
 
 .UserInfo.fadeOut {
-  transition: opacity 0s;
+  transition: all 0.1s;
   opacity: 0;
 }
 
@@ -208,4 +209,11 @@ footer {
 footer a, footer a:after {
   text-decoration: underline;
   color: white;
+}
+
+@media only screen and (max-width: 500px) {
+  .searchBtn {
+    display: none;
+  }
+
 }
