@@ -240,6 +240,10 @@ footer a, footer a:after {
     float: none;
     margin: 20px auto 0 auto;
   }
+  .UserInfo {
+    margin-left: auto;
+    margin-right: auto;
+  }
   .text-footer {
     display: none;
     text-align: center;
