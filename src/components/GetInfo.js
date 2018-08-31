@@ -19,6 +19,7 @@ class GetInfo extends React.Component {
 			repos: null,
 			isInvalid: false,
 			isFound: true,
+			searchHistory: []
 		}
 		this.getInfo = this.getInfo.bind(this);
 		this.inputHandler = this.inputHandler.bind(this);
@@ -47,10 +48,13 @@ class GetInfo extends React.Component {
 			axios.get(userUrl), axios.get(reposUrl) 
 			])
 			.then(axios.spread((userResp, reposResp) => {
+				let searchHistory = [...this.state.searchHistory, userResp.data.login];
+				
 					this.setState({
 						user: userResp.data,
 						repos: reposResp.data,
-						isFound:true
+						isFound:true,
+						searchHistory: searchHistory.length <= 5 ?  searchHistory : searchHistory.slice(-5),
 					});
 				}))
 				.catch((error) => {
@@ -72,6 +76,7 @@ class GetInfo extends React.Component {
 				<Header 
 					change={this.inputHandler}
 					click={this.getInfo}
+					searchHistory={this.state.searchHistory}
 				/>
 				<Content 
 					isInvalid={this.state.isInvalid}
