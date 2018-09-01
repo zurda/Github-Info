@@ -8,11 +8,14 @@ function keyDownHandler(event) {
 }
 
 const Header = (props) => {
-	let searchHistoryElements;
+	let searchHistoryElements = [];
 	if(props.searchHistory.length > 0){
 		searchHistoryElements = props.searchHistory.map(element => {
 									return <option key={element} value={element}/>	
 								});
+								
+		//remove current user
+		searchHistoryElements.pop();
 	}
 
 	return(

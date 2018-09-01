@@ -48,8 +48,15 @@ class GetInfo extends React.Component {
 			axios.get(userUrl), axios.get(reposUrl) 
 			])
 			.then(axios.spread((userResp, reposResp) => {
-				let searchHistory = [...this.state.searchHistory, userResp.data.login];
-				
+				let searchHistory = [...this.state.searchHistory];
+				let index = searchHistory.indexOf(userResp.data.login);
+
+				if(index < 0) {
+					searchHistory.push(userResp.data.login);
+				} else {
+					searchHistory.push(searchHistory.splice(index, 1)[0]);
+				}
+
 					this.setState({
 						user: userResp.data,
 						repos: reposResp.data,
