@@ -8,6 +8,16 @@ function keyDownHandler(event) {
 }
 
 const Header = (props) => {
+	let searchHistoryElements = [];
+	if(props.searchHistory.length > 0){
+		searchHistoryElements = props.searchHistory.map(element => {
+									return <option key={element} value={element}/>	
+								});
+								
+		//remove current user
+		searchHistoryElements.pop();
+	}
+
 	return(
 		<div className='header'>
 			<img className='logo' src={logo} alt='Github Profile Display Logo' />
@@ -15,10 +25,14 @@ const Header = (props) => {
 			<div className='userSearch'>
 				<input className='searchInput' id='searchInputID'
 					type="text" name="fname" placeholder="Search for a user"
-				
+					list='searchHistory'
 					onChange={props.change}
 					onKeyDown={keyDownHandler}
 				/>
+				<datalist id="searchHistory">
+					{searchHistoryElements}
+				</datalist>
+
 				<button className='searchBtn' id='searchButton' onClick={props.click}>Get info</button>
 			</div>
 			<div className="a2a_kit a2a_kit_size_32 a2a_default_style icons-header">
