@@ -17,11 +17,13 @@ class GetInfo extends React.Component {
 			input: 'getify',
 			user: null,
 			repos: null,
-			isInvalid: false,
+			languages: null,
+ 			isInvalid: false,
 			isFound: true,
 			searchHistory: []
 		}
 		this.getInfo = this.getInfo.bind(this);
+		this.getLanguages = this.getLanguages.bind(this);
 		this.inputHandler = this.inputHandler.bind(this);
 	}
 
@@ -43,7 +45,7 @@ class GetInfo extends React.Component {
 		// Get user data
 		const userUrl = 'https://api.github.com/users/' + username + params;
 		const reposUrl = 'https://api.github.com/users/' + username + '/repos' + params + '&per_page=100';
-		
+
 		axios.all([ 
 			axios.get(userUrl), axios.get(reposUrl) 
 			])
@@ -63,6 +65,7 @@ class GetInfo extends React.Component {
 						isFound:true,
 						searchHistory: searchHistory.length <= 5 ?  searchHistory : searchHistory.slice(-5),
 					});
+					this.getLanguages();
 				}))
 				.catch((error) => {
     				console.log('FAIL', error);
@@ -72,12 +75,37 @@ class GetInfo extends React.Component {
   				});
 	}
 
+	getLanguages () {
+		const repos = this.state.repos;
+		if (repos) {
+			const ownedRepos = repos.filter(repo => repo.fork === false);
+			const languagesUrl = ownedRepos.map(repo => repo.languages_url + params);
+			axios.all(
+				languagesUrl.map(url => axios.get(url))
+			)
+			.then( res => {
+				const langs = res.map(result => result.data
+					).filter(value => Object.keys(value).length !== 0);
+				this.setState({languages: langs});
+			});
+		}
+	}
+
 	inputHandler(event) {
 		const input = event.target.value;
 		this.setState({input});
 	}
 
 	render() {
+		if (this.state.languages) {
+			let langSum = {};
+			for (let i=0; i<this.state.languages.length; i++) {
+				for(let key in this.state.languages[i]){
+       				langSum[key] = langSum[key] ? langSum[key] + this.state.languages[i][key] : this.state.languages[i][key];
+      			}
+    		}
+		}
+
 		return (
 			<div className='wrapper'>
 				<Header 
@@ -91,6 +119,9 @@ class GetInfo extends React.Component {
 					user={this.state.user}
 					repos={this.state.repos} 
 				/>
+				<div>
+					Languages: {}
+				</div>
 				<Footer />
 			</div>
 		);
