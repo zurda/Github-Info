@@ -18,6 +18,7 @@ class GetInfo extends React.Component {
 			user: null,
 			repos: null,
 			languages: null,
+			maxLanguage: null,
  			isInvalid: false,
 			isFound: true,
 			searchHistory: []
@@ -96,15 +97,24 @@ class GetInfo extends React.Component {
 		this.setState({input});
 	}
 
+	findMax(obj) {
+		if (obj && Object.keys(obj).length > 0) {
+			let topLang = Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
+			return topLang;
+		} 
+		return null;
+	}
+
 	render() {
+		let langSum = {};
 		if (this.state.languages) {
-			let langSum = {};
 			for (let i=0; i<this.state.languages.length; i++) {
 				for(let key in this.state.languages[i]){
        				langSum[key] = langSum[key] ? langSum[key] + this.state.languages[i][key] : this.state.languages[i][key];
       			}
     		}
 		}
+		const topLang = this.findMax(langSum);
 
 		return (
 			<div className='wrapper'>
@@ -117,11 +127,8 @@ class GetInfo extends React.Component {
 					isInvalid={this.state.isInvalid}
 					isFound={this.state.isFound}
 					user={this.state.user}
-					repos={this.state.repos} 
-				/>
-				<div>
-					Languages: {}
-				</div>
+					repos={this.state.repos}
+					topLang={topLang} />
 				<Footer />
 			</div>
 		);
