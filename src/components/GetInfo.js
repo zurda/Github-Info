@@ -51,21 +51,15 @@ class GetInfo extends React.Component {
 			axios.get(userUrl), axios.get(reposUrl) 
 			])
 			.then(axios.spread((userResp, reposResp) => {
-				let searchHistory = [...this.state.searchHistory];
-				let index = searchHistory.indexOf(userResp.data.login);
-
-				if(index < 0) {
-					searchHistory.push(userResp.data.login);
-				} else {
-					searchHistory.push(searchHistory.splice(index, 1)[0]);
-				}
+				
+				this.appendToSearchHistory(userResp.data.login);
 
 					this.setState({
 						user: userResp.data,
 						repos: reposResp.data,
 						isFound:true,
-						searchHistory: searchHistory.length <= 5 ?  searchHistory : searchHistory.slice(-5),
 					});
+
 					this.getLanguages();
 				}))
 				.catch((error) => {
@@ -74,6 +68,21 @@ class GetInfo extends React.Component {
 						this.setState({isFound: false});
 					}
   				});
+	}
+
+	appendToSearchHistory(newEntry) {
+		let searchHistory = [...this.state.searchHistory];
+		let index = searchHistory.indexOf(newEntry);
+
+		if(index < 0) {
+			searchHistory.push(newEntry);
+		} else {
+			searchHistory.push(searchHistory.splice(index, 1)[0]);
+		}
+
+		this.setState({
+			searchHistory: searchHistory.length <= 5 ?  searchHistory : searchHistory.slice(-5),
+		});		
 	}
 
 	getLanguages () {
