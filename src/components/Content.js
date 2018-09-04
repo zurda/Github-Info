@@ -19,10 +19,11 @@ const Content = (props) => {
 		} else {
 			userInfo = <UserInfo>
 							<DisplayUser user={props.user} />
-							<DisplayRepos repos={props.repos} />
+							<DisplayRepos repos={props.repos} topLang={props.topLang} />
 						</UserInfo>
 		}
 	}
+	
 	return (
 		<div>{userInfo}</div>
 	);

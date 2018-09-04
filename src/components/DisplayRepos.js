@@ -1,11 +1,12 @@
 import React from 'react';
 import {addCommas} from './DisplayUser';
 
-const displayRepos = ({ repos }) => {
+const displayRepos = (props) => {
 	let stargazers_total, 
 	forks_total,
 	most_starred, 
 	most_forked;
+	const repos = props.repos;
 	if (!repos) {
 		return null;
 	} else {
@@ -36,6 +37,7 @@ const displayRepos = ({ repos }) => {
 					<a href={most_forked.html_url} target="_BLANK">{most_forked.name}</a>
 				</p>
 			}
+			<p>Top Language: {props.topLang}</p>
 		</div>
 	);
 }

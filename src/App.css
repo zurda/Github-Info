@@ -168,6 +168,12 @@ input:focus:-ms-input-placeholder {
   padding: 5px;
 }
 
+.DisplayLanguages {
+  display: block;
+  font-size: 26px;
+  margin-bottom: 100px;
+}
+
 .avatar {
   width: 95%;
 }
