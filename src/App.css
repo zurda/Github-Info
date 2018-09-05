@@ -13,30 +13,35 @@ html,body {
 .header {
   background-color: black;
   height: 60px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
   float: left;
+  margin: 20px;
   width: 40px;
   height: 40px;
   background: white;
-  margin: 10px 0 10px 20px;
+  /* margin: 10px 0 10px 20px; */
 }
 
 .title {
-  position: relative;
+  /* position: relative;
   top: 30px;
-  left: 10px;
-  margin-right: 10px;
+  left: 10px; */
   color: white;
   font-size: 18px;
+  flex: 8 auto;
 }
 
 .userSearch {
-  position: relative;
+  /* position: relative;
   left: 150px;
   margin-right: 150px;
-  top: 5px;
+  top: 5px; */
+  flex-grow:10;
 }
 
 input {
@@ -49,8 +54,8 @@ input:focus {
 }
 
 .searchInput {
-  width: 120px;
-  border-radius: 3px;
+  width: 180px;;
+  border-radius: 1px;
   font-size: 14px;
   padding: 5px;
   background: rgba(200, 200, 200, 0.6);
@@ -109,8 +114,9 @@ input:focus:-ms-input-placeholder {
 
 .a2a_kit, .a2a_kit_size_32 ,.a2a_default_style {
   display: inline-block;
-  float: right;
-  margin-right: 20px;
+  margin-right:20px;
+  height: 0px;
+  margin-top: 5px;
 }
 
 .a2a_dd, .a2a_button_copy_link {

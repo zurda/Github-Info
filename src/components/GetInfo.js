@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import githubUsernameRegex from 'github-username-regex';
 
-import Header from './Header';
+import Header from './Header/Header';
 import Content from './Content';
 import Footer from './Footer';
 
