@@ -17,7 +17,7 @@ const Content = (props) => {
 		if(!(props.user || props.repos )){
 			userInfo = <FlashMessage type="info">Loading...</FlashMessage>;
 		} else {
-			userInfo = <UserInfo>
+			userInfo = <UserInfo alreadyDisplayed={props.alreadyDisplayed} handleAlreadyDisplayed={props.handleAlreadyDisplayed}>
 							<DisplayUser user={props.user} />
 							<DisplayRepos repos={props.repos} topLang={props.topLang} />
 						</UserInfo>
