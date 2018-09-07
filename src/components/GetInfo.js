@@ -7,7 +7,7 @@ import Content from './Content';
 import Footer from './Footer';
 
 const id = "f5ce4435afdfe23711c6";
-const sec = "1daa19d525b9e92f034ebe504075e5b1600eea46";
+const sec = "";
 const params = "?client_id=" + id + "&client_secret=" + sec;
 
 class GetInfo extends React.Component {
