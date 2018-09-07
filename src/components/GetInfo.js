@@ -21,7 +21,8 @@ class GetInfo extends React.Component {
 			maxLanguage: null,
  			isInvalid: false,
 			isFound: true,
-			searchHistory: []
+			searchHistory: [],
+			alreadyDisplayed: false
 		}
 		this.getInfo = this.getInfo.bind(this);
 		this.getLanguages = this.getLanguages.bind(this);
@@ -34,6 +35,13 @@ class GetInfo extends React.Component {
 
 	getInfo() {
 		const username = this.state.input;
+		// check if user is already displayed
+		if(this.state.user && (username === this.state.user.login)){
+			this.setState({
+				alreadyDisplayed: true,
+			});
+			return;
+		}
 		// Check if the username is a valid one
 		if(!githubUsernameRegex.test(username)) {
 			// if not, set state to reflect so
@@ -46,7 +54,7 @@ class GetInfo extends React.Component {
 		// Get user data
 		const userUrl = 'https://api.github.com/users/' + username + params;
 		const reposUrl = 'https://api.github.com/users/' + username + '/repos' + params + '&per_page=100';
-
+		
 		axios.all([ 
 			axios.get(userUrl), axios.get(reposUrl) 
 			])
@@ -54,20 +62,20 @@ class GetInfo extends React.Component {
 				
 				this.appendToSearchHistory(userResp.data.login);
 
-					this.setState({
-						user: userResp.data,
-						repos: reposResp.data,
-						isFound:true,
-					});
+				this.setState({
+					user: userResp.data,
+					repos: reposResp.data,
+					isFound:true,
+				});
 
-					this.getLanguages();
-				}))
-				.catch((error) => {
-    				console.log('FAIL', error);
-    				if(error.response.status === 404){
-						this.setState({isFound: false});
-					}
-  				});
+				this.getLanguages();
+			}))
+			.catch((error) => {
+    		console.log('FAIL', error);
+    			if(error.response && error.response.status === 404){
+					this.setState({isFound: false});
+				}
+  			});
 	}
 
 	appendToSearchHistory(newEntry) {
@@ -114,6 +122,12 @@ class GetInfo extends React.Component {
 		return null;
 	}
 
+	handleAlreadyDisplayed(){
+		this.setState({
+			alreadyDisplayed: false
+		})
+	}
+
 	render() {
 		let langSum = {};
 		if (this.state.languages) {
@@ -136,6 +150,8 @@ class GetInfo extends React.Component {
 					isInvalid={this.state.isInvalid}
 					isFound={this.state.isFound}
 					user={this.state.user}
+					alreadyDisplayed={this.state.alreadyDisplayed}
+					handleAlreadyDisplayed={this.handleAlreadyDisplayed.bind(this)}
 					repos={this.state.repos}
 					topLang={topLang} />
 				<Footer />

@@ -187,6 +187,10 @@ input:focus:-ms-input-placeholder {
   transition: all 0.2s ease-in;
 }
 
+.UserInfo.alreadyDisplayed {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
 .UserInfo.fadeIn {
   transition: all 0.2s ease-in;
   opacity: 1;
