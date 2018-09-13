@@ -107,6 +107,11 @@ input:focus:-ms-input-placeholder {
   font-weight: bold;
 }
 
+.searchBtn:hover {
+  background-color: rgba(220, 220, 220);
+  cursor: pointer;
+}
+
 .a2a_kit, .a2a_kit_size_32 ,.a2a_default_style {
   display: inline-block;
   float: right;
@@ -163,7 +168,7 @@ input:focus:-ms-input-placeholder {
   margin: 0 30px 30px 30px;
 }
 
-.DisplayUser *, 
+.DisplayUser *,
 .DisplayRepos * {
   padding: 5px;
 }
@@ -177,6 +182,13 @@ input:focus:-ms-input-placeholder {
 .avatar {
   width: 95%;
 }
+
+img:hover {
+  transition: filter .5s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 
 .UserInfo {
   min-height: 600px;
@@ -201,9 +213,8 @@ input:focus:-ms-input-placeholder {
   opacity: 0;
 }
 
-.UserInfo a, 
+.UserInfo a,
 .UserInfo a:after,
-.UserInfo a:hover,
 .UserInfo a:active   {
     text-decoration: none;
     color: black;
@@ -212,10 +223,15 @@ input:focus:-ms-input-placeholder {
 .UserInfo:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 }
+
 .wrapper {
   display: block;
   min-height: 100%;
   width: 100%;
+}
+
+.UserInfo a:hover {
+  color: rgba(120, 120, 120);
 }
 
 footer {
