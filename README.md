@@ -6,6 +6,10 @@ The purpose of this project is to allow users to view (and in the future - compa
 
 https://zurda.github.io/Github-Info/
 
+### Search and Sort
+ 
+A version of this project with the addition of adding multiple users and sorting them is available here: https://github.com/zurda/search-and-sort
+
 ### To set up the project locally: 
 
 1. Clone or fork the repo 
