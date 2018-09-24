@@ -8,7 +8,7 @@ https://zurda.github.io/Github-Info/
 
 ### Search and Sort
  
-A version of this project with the addition of adding multiple users and sorting them is available here: https://github.com/zurda/search-and-sort
+A version of this project with the addition of adding multiple users and sorting them is available here: https://github.com/zurda/github-user-finder
 
 ### To set up the project locally: 
 
