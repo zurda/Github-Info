@@ -7,7 +7,6 @@ const DisplayLanguages = (props) => {
 	if (props.topLang) {
 		topLang = addCommas(props.topLang.toString());
 	}
-	console.log(topLang);
 	return (
 		<div className='DisplayRepos'>
 			<p>Top Languages: {props.topLang}</p>
