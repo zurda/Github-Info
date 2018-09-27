@@ -56,10 +56,12 @@ class UserInfo extends Component {
 		
 		const showDisplayed = this.state.alreadyDisplayed ? 'alreadyDisplayed' : '';
 		
-		return <div className={`UserInfo ${this.state.fadeState} ${showDisplayed}`} >
-					{userChild}
-					{reposChild}
-				</div>;
+		return (
+			<div className={`UserInfo ${this.state.fadeState} ${showDisplayed}`} >
+				{userChild}
+				{reposChild}
+			</div>
+		);
 	}
 }
 

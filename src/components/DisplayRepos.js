@@ -24,18 +24,20 @@ const displayRepos = (props) => {
 		<div className='DisplayRepos'>
 			<p>Stargazers: {addCommas(stargazers_total.toString())}</p>
 			{
-				most_starred &&
-				<p>
-					Most Starred Repo:
+				most_starred && (
+					<p>
+						Most Starred Repo:
 					<a href={most_starred.html_url} target="_BLANK">{most_starred.name}</a>
-				</p>
+					</p>
+				)
 			}
 			{
-				most_forked &&
-				<p>
-					Most Forked Repo:
+				most_forked && (
+					<p>
+						Most Forked Repo:
 					<a href={most_forked.html_url} target="_BLANK">{most_forked.name}</a>
-				</p>
+					</p>
+				)
 			}
 			<p>Top Language: {props.topLang}</p>
 		</div>
