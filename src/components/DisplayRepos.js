@@ -1,5 +1,7 @@
 import React from 'react';
 import {addCommas} from './DisplayUser';
+import ValidatedField from './ValidatedField';
+
 
 const displayRepos = (props) => {
 	let stargazers_total, 
@@ -39,7 +41,7 @@ const displayRepos = (props) => {
 					</p>
 				)
 			}
-			<p>Top Language: {props.topLang}</p>
+			<ValidatedField fieldName="Top Language" value={props.topLang} ></ValidatedField>
 		</div>
 	);
 }
