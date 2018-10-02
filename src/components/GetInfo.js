@@ -21,6 +21,7 @@ class GetInfo extends React.Component {
       maxLanguage: null,
       isInvalid: false,
       isFound: true,
+      isForbidden:false,
       searchHistory: [],
       alreadyDisplayed: false
     };
@@ -69,7 +70,8 @@ class GetInfo extends React.Component {
           this.setState({
             user: userResp.data,
             repos: reposResp.data,
-            isFound: true
+            isFound: true,
+            isForbidden:false
           });
 
           this.getLanguages();
@@ -77,8 +79,11 @@ class GetInfo extends React.Component {
       )
       .catch(error => {
         console.log("FAIL", error);
-        if (error.response && error.response.status === 404) {
+        if (error.response && error.response.status === 404 ) {
           this.setState({ isFound: false });
+        }
+        else if(error.response && error.response.status === 403){
+          this.setState({isForbidden:true});
         }
       });
   }
@@ -157,6 +162,7 @@ class GetInfo extends React.Component {
         <Content
           isInvalid={this.state.isInvalid}
           isFound={this.state.isFound}
+          isForbidden={this.state.isForbidden}
           user={this.state.user}
           alreadyDisplayed={this.state.alreadyDisplayed}
           handleAlreadyDisplayed={this.handleAlreadyDisplayed.bind(this)}
