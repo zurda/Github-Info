@@ -13,7 +13,11 @@ const Content = (props) => {
 	} else if(!props.isFound){
 		// Show a message when the username is not found
 		userInfo =	<FlashMessage type="error">Username not found</FlashMessage>;	
-	} else {
+	}
+	else if(props.isForbidden){
+		userInfo =	<FlashMessage type="error">403 - Forbidden</FlashMessage>;	
+	}
+	else {
 		if(!(props.user || props.repos )){
 			userInfo = <FlashMessage type="info">Loading...</FlashMessage>;
 		} else {
