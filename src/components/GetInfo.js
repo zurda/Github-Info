@@ -14,7 +14,7 @@ class GetInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: "getify",
+      input: "octocat",
       user: null,
       repos: null,
       languages: null,
