@@ -17,6 +17,13 @@ A version of this project with the addition of adding multiple users and sorting
 3. Run `npm install`
 4. Run `npm start`
 
+To access the api, you'll also need to set up a `.env` file in the root directory, and set two values: 
+
+```
+REACT_APP_API_KEY=your_key
+REACT_APP_API_SECRET=your_secret
+```
+
 Future versions goals: 
 
 Short term
