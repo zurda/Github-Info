@@ -53,6 +53,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/zh-betina"><img src="https://avatars3.githubusercontent.com/u/62478957?v=4" width="100px;" alt=""/><br /><sub><b>Betina Zhou</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=zh-betina" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/luisduenas"><img src="https://avatars3.githubusercontent.com/u/16164843?v=4" width="100px;" alt=""/><br /><sub><b>Luis Dueñas</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/issues?q=author%3Aluisduenas" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://mrassili.com"><img src="https://avatars0.githubusercontent.com/u/25288435?v=4" width="100px;" alt=""/><br /><sub><b>Marouane R</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=mrassili" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/decarbonite"><img src="https://avatars2.githubusercontent.com/u/34205725?v=4" width="100px;" alt=""/><br /><sub><b>Ahmed Romih</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=decarbonite" title="Code">💻</a></td>
   </tr>
 </table>
 
