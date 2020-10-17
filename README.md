@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 The purpose of this project is to allow users to view (and in the future - compare) github users, their activity, and contribution. 
@@ -55,6 +55,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/decarbonite"><img src="https://avatars2.githubusercontent.com/u/34205725?v=4" width="100px;" alt=""/><br /><sub><b>Ahmed Romih</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=decarbonite" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/ksenousi"><img src="https://avatars3.githubusercontent.com/u/22755568?v=4" width="100px;" alt=""/><br /><sub><b>Karim</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=ksenousi" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/titchimoto"><img src="https://avatars0.githubusercontent.com/u/29615325?v=4" width="100px;" alt=""/><br /><sub><b>titchimoto</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=titchimoto" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Wgil"><img src="https://avatars3.githubusercontent.com/u/12855914?v=4" width="100px;" alt=""/><br /><sub><b>Warao</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=Wgil" title="Code">💻</a></td>
   </tr>
 </table>
 
