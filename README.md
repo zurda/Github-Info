@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 The purpose of this project is to allow users to view (and in the future - compare) github users, their activity, and contribution. 
@@ -51,6 +51,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/zh-betina"><img src="https://avatars3.githubusercontent.com/u/62478957?v=4" width="100px;" alt=""/><br /><sub><b>Betina Zhou</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=zh-betina" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/luisduenas"><img src="https://avatars3.githubusercontent.com/u/16164843?v=4" width="100px;" alt=""/><br /><sub><b>Luis Dueñas</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/issues?q=author%3Aluisduenas" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
