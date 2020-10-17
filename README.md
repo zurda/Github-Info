@@ -1,4 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 The purpose of this project is to allow users to view (and in the future - compare) github users, their activity, and contribution. 
 
@@ -37,3 +40,22 @@ Longer term:
 ### Contributions 
 
 This project is absolutely accepting pull requests (first-timers welcome!)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/zh-betina"><img src="https://avatars3.githubusercontent.com/u/62478957?v=4" width="100px;" alt=""/><br /><sub><b>Betina Zhou</b></sub></a><br /><a href="https://github.com/zurda/Github-Info/commits?author=zh-betina" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
