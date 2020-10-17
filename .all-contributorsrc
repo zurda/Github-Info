@@ -13,6 +13,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "luisduenas",
+      "name": "Luis Dueñas",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16164843?v=4",
+      "profile": "https://github.com/luisduenas",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
