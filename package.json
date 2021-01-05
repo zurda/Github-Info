@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://zurda.github.io/Github-Info",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "github-username-regex": "^1.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
